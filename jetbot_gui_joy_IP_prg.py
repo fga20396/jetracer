@@ -2,6 +2,7 @@
 
 pip install pygame
 sudo apt install python3-tk
+pip install ttkbootstrap
 
 '''
 
@@ -9,7 +10,8 @@ sudo apt install python3-tk
 import socket
 import pygame
 import time
-import tkinter as tk
+import ttkbootstrap as tb
+from ttkbootstrap.constants import *
 from threading import Thread
 
 # JetBot IP and port
@@ -31,15 +33,15 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.connect((JETBOT_IP, PORT))
 
 # GUI setup
-root = tk.Tk()
+root = tb.Window(themename="flatly")  # or "darkly", "cosmo", etc
 root.title("JetBot Joystick Controller")
 root.geometry("300x200")
 
 # Labels to show direction and speed
-direction_label = tk.Label(root, text="Direction: stop", font=("Arial", 14))
+direction_label = tb.Label(root, text="Direction: stop", font=("Arial", 14))
 direction_label.pack(pady=10)
 
-speed_label = tk.Label(root, text="Speed: 0.0", font=("Arial", 14))
+speed_label = tb.Label(root, text="Speed: 0.0", font=("Arial", 14))
 speed_label.pack(pady=10)
 
 # Stop button
@@ -48,7 +50,7 @@ def stop_robot():
     direction_label.config(text="Direction: stop")
     speed_label.config(text="Speed: 0.0")
 
-stop_button = tk.Button(root, text="STOP", command=stop_robot, bg="red", fg="white", font=("Arial", 12))
+stop_button = tb.Button(root, text="STOP", command=stop_robot, bg="red", fg="white", font=("Arial", 12))
 stop_button.pack(pady=10)
 
 # Function to send command to JetBot
