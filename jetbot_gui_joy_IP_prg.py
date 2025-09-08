@@ -44,6 +44,10 @@ direction_label.pack(pady=10)
 speed_label = tb.Label(root, text="Speed: 0.0", font=("Arial", 14))
 speed_label.pack(pady=10)
 
+stop_button = tb.Button(root, text="STOP", command=stop_robot, bootstyle="danger")
+stop_button.pack(pady=5)
+
+
 # Stop button
 def stop_robot():
     send_command("stop", 0.0)
