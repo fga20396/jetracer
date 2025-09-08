@@ -1,3 +1,11 @@
+'''
+
+pip install pygame
+sudo apt install python3-tk
+
+'''
+
+
 import socket
 import pygame
 import time
