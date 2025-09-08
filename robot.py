@@ -1,3 +1,8 @@
+import time
+from Adafruit_MotorHAT import Adafruit_MotorHAT
+from .motor import Motor
+
+
 class Robot:
     def __init__(self, left_motor, right_motor, speed=0.3):
         self.left_motor = left_motor
